@@ -3,8 +3,29 @@
 
 - name: Verify
   hosts: all
-  gather_facts: false
+  gather_facts: true
+  vars:
+    env_files_path: /tmp
+    github_username: myusername
+    git_name: Some User
+    git_email: nobody@example.com
   tasks:
-    - name: Example assertion
-      ansible.builtin.assert:
-        that: true
+    - name: Verify env dir
+      block:
+        - name: stat env-files dir
+          ansible.builtin.stat:
+            path: "{{ env_files_path }}"
+          register: env_files_path
+        - name: env_files_path isdir
+          ansible.builtin.assert:
+            that: env_files_path.stat.isdir
+
+    - name: Verify fonts dir
+      block:
+        - name: stat fonts dir
+          ansible.builtin.stat:
+            path: "{{ ansible_user_dir }}/.fonts"
+          register: fonts_dir
+        - name: fonts_dir isdir
+          ansible.builtin.assert:
+            that: fonts_dir.stat.isdir

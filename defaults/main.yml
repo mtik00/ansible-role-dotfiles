@@ -1,1 +1,4 @@
 ---
+
+env_d_mode: '0770'
+env_files_path: "{{ ansible_user_dir }}/.env-files.d"
