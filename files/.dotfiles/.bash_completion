@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# WARNING: This file is managed by Ansible.
+
+for bcfile in ~/.bash_completion.d/* ; do
+  [ -f "$bcfile" ] && . $bcfile
+done

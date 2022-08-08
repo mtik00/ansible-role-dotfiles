@@ -1,7 +1,12 @@
 ---
 - name: Converge
   hosts: all
-  gather_facts: false
+  gather_facts: true
+  vars:
+    env_files_path: /tmp
+    github_username: myusername
+    git_name: Some User
+    git_email: nobody@example.com
   tasks:
     - name: "Include mtik00.dotfiles"
       ansible.builtin.include_role:
