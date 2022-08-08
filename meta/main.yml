@@ -1,0 +1,19 @@
+---
+
+galaxy_info:
+  author: Tim McFadden
+  description: An ansible role for installing and configuring my dotfiles
+  company: ""
+  role_name: dotfiles
+  namespace: mtik00
+  issue_tracker_url: https://github.com/mtik00/ansible-role-dotfiles/issues
+  license: MIT
+  min_ansible_version: "2.1"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+
+  galaxy_tags: []
+
+dependencies: []
