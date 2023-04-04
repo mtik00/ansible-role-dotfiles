@@ -1,6 +1,6 @@
 ---
 
-- name: check for required variables
+- name: Check for required variables
   ansible.builtin.assert:
     that:
       - env_files_path
@@ -8,13 +8,13 @@
       - git_name
       - git_email
 
-- name: dotfiles folder
+- name: Create dotfiles folder
   ansible.builtin.file:
     path: "{{ ansible_user_dir }}/.dotfiles"
     state: directory
     mode: 0755
 
-- name: copy dotfiles
+- name: Copy dotfiles
   ansible.builtin.copy:
     src: files/.dotfiles
     dest: "{{ ansible_user_dir }}"
@@ -29,7 +29,7 @@
     force: true
     state: link
 
-- name: vimrc
+- name: Create vimrc
   ansible.builtin.blockinfile:
     path: "{{ ansible_user_dir }}/.vimrc"
     marker: '" {mark} ANSIBLE MANAGED BLOCK'
@@ -46,7 +46,7 @@
       set ignorecase
       set smartcase
 
-- name: copy fonts
+- name: Copy fonts
   ansible.builtin.copy:
     src: files/.fonts
     dest: "{{ ansible_user_dir }}"
@@ -61,7 +61,7 @@
     force: true
     state: link
 
-- name: copy env-files.d files
+- name: Copy env-files.d files
   become: false
   ansible.builtin.copy:
     src: files/.env-files.d/
@@ -70,7 +70,7 @@
     group: "{{ ansible_user_id }}"
     mode: 0660
 
-- name: create cookiecutter env file
+- name: Create cookiecutter env file
   ansible.builtin.copy:
     dest: "{{ env_files_path }}/cookie-cutter"
     owner: "{{ ansible_user_id }}"
@@ -78,7 +78,7 @@
     mode: 0660
     content: export COOKIECUTTER_CONFIG={{ ansible_user_dir }}/.dotfiles/cookie-cutter.yml
 
-- name: create cookiecutter default file
+- name: Create cookiecutter default file
   ansible.builtin.copy:
     dest: "{{ ansible_user_dir }}/.dotfiles/cookie-cutter.yml"
     owner: "{{ ansible_user_id }}"
