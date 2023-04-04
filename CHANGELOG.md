@@ -1,3 +1,13 @@
+## 0.3.0 (2023-04-04)
+
+### Feat
+
+- adding randuuid alias
+
+### Refactor
+
+- disable gpg_sign
+
 ## 0.2.1 (2022-08-21)
 
 ### Fix
