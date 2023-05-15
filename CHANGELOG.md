@@ -1,3 +1,9 @@
+## 0.3.1 (2023-05-15)
+
+### Refactor
+
+- adding more precision to isodate
+
 ## 0.3.0 (2023-04-04)
 
 ### Feat
