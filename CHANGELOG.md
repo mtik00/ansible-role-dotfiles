@@ -1,3 +1,9 @@
+## 0.4.0 (2023-07-12)
+
+### Feat
+
+- adding aliases/functions for poetry
+
 ## 0.3.1 (2023-05-15)
 
 ### Refactor
